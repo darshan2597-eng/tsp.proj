@@ -12,9 +12,9 @@
 html, body{
 margin:0;
 padding:0;
-background:#ffffff !important;
+background:#ffffff;
 font-family:'Inter', sans-serif;
-color:#666666;
+overflow-x:hidden;
 }
 
 /* COLORS */
@@ -22,6 +22,44 @@ color:#666666;
 --brown:#4b2e1f;
 --grey:#666666;
 --lightgrey:#9a9a9a;
+}
+
+/* INTRO SCREEN */
+
+.intro{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#ffffff;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:2000;
+}
+
+.intro-word{
+font-family:'Cormorant Garamond', serif;
+font-size:3.5rem;
+color:var(--brown);
+opacity:0;
+position:absolute;
+transition:opacity 1.2s ease;
+}
+
+.intro-logo{
+height:60px;
+opacity:0;
+transition:opacity 1.5s ease;
+}
+
+/* MAIN SITE (hidden initially) */
+
+.site{
+opacity:0;
+transition:opacity 1.5s ease;
 }
 
 /* NAV */
@@ -45,8 +83,6 @@ align-items:center;
 padding:20px 0;
 }
 
-/* BRAND BLOCK */
-
 .brand{
 display:flex;
 align-items:center;
@@ -63,8 +99,6 @@ font-size:1.8rem;
 color:var(--brown);
 font-weight:500;
 }
-
-/* NAV LINKS */
 
 .nav-links a{
 margin-left:30px;
@@ -99,6 +133,7 @@ margin-bottom:20px;
 .hero p{
 max-width:600px;
 line-height:1.8;
+color:var(--grey);
 }
 
 /* FOOTER */
@@ -112,11 +147,11 @@ border-top:1px solid #eeeeee;
 }
 
 @media(max-width:768px){
+.intro-word{
+font-size:2.2rem;
+}
 .hero h1{
 font-size:2.5rem;
-}
-.nav-links a{
-margin-left:15px;
 }
 }
 
@@ -124,6 +159,17 @@ margin-left:15px;
 </head>
 
 <body>
+
+<!-- INTRO -->
+
+<div class="intro">
+<div id="word" class="intro-word"></div>
+<img src="logo.png" id="introLogo" class="intro-logo">
+</div>
+
+<!-- MAIN SITE -->
+
+<div class="site" id="mainSite">
 
 <nav>
 <div class="nav-inner">
@@ -149,6 +195,55 @@ margin-left:15px;
 <div class="footer">
 © 2026 The Samanweeave Project
 </div>
+
+</div>
+
+<script>
+
+const words = ["People", "Place", "Purpose"];
+const wordElement = document.getElementById("word");
+const introLogo = document.getElementById("introLogo");
+const introScreen = document.querySelector(".intro");
+const mainSite = document.getElementById("mainSite");
+
+let index = 0;
+
+function showWord(){
+if(index < words.length){
+wordElement.textContent = words[index];
+wordElement.style.opacity = 1;
+
+setTimeout(()=>{
+wordElement.style.opacity = 0;
+index++;
+setTimeout(showWord, 800);
+},1500);
+
+}else{
+
+// After last word
+setTimeout(()=>{
+introLogo.style.opacity = 1;
+
+setTimeout(()=>{
+introLogo.style.opacity = 0;
+introScreen.style.opacity = 0;
+
+setTimeout(()=>{
+introScreen.style.display = "none";
+mainSite.style.opacity = 1;
+},1000);
+
+},1500);
+
+},800);
+
+}
+}
+
+showWord();
+
+</script>
 
 </body>
 </html>
