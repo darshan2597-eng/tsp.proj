@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,52 +9,73 @@
 
 <style>
 
-*{
+html, body{
 margin:0;
 padding:0;
-box-sizing:border-box;
-}
-
-body{
-background:#ffffff;
+background:#ffffff !important;
 font-family:'Inter', sans-serif;
-color:#555555;
-overflow-x:hidden;
+color:#666666;
 }
 
-/* COLOR SYSTEM */
-
+/* COLORS */
 :root{
---brown:#5a3e2b;
---grey:#6f6f6f;
---lightgrey:#9c9c9c;
+--brown:#4b2e1f;
+--grey:#666666;
+--lightgrey:#9a9a9a;
 }
 
-/* CONTAINER */
-
-.container{
-width:88%;
-max-width:1200px;
-margin:auto;
-}
-
-/* NAVIGATION */
+/* NAV */
 
 nav{
+width:100%;
+border-bottom:1px solid #eeeeee;
+background:#ffffff;
 position:fixed;
 top:0;
-width:100%;
-padding:25px 0;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(10px);
 z-index:1000;
-border-bottom:1px solid #f2f2f2;
 }
 
-.logo{
-height:42px;
-opacity:0;
-animation:fadeIn 1.5s ease forwards;
+.nav-inner{
+width:90%;
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+/* BRAND BLOCK */
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.brand img{
+height:38px;
+}
+
+.brand-name{
+font-family:'Cormorant Garamond', serif;
+font-size:1.8rem;
+color:var(--brown);
+font-weight:500;
+}
+
+/* NAV LINKS */
+
+.nav-links a{
+margin-left:30px;
+text-decoration:none;
+font-size:0.9rem;
+letter-spacing:1px;
+color:var(--grey);
+}
+
+.nav-links a:hover{
+color:var(--brown);
 }
 
 /* HERO */
@@ -63,117 +84,40 @@ animation:fadeIn 1.5s ease forwards;
 height:100vh;
 display:flex;
 align-items:center;
-}
-
-.hero-content{
-max-width:850px;
-opacity:0;
-transform:translateY(40px);
-animation:slideUp 1.6s ease forwards;
-animation-delay:0.4s;
+width:90%;
+max-width:1100px;
+margin:auto;
 }
 
 .hero h1{
 font-family:'Cormorant Garamond', serif;
-font-size:4.2rem;
-font-weight:500;
+font-size:4rem;
 color:var(--brown);
 margin-bottom:20px;
-letter-spacing:1px;
 }
 
 .hero p{
-font-size:1.1rem;
 max-width:600px;
 line-height:1.8;
-color:var(--grey);
-}
-
-/* SECTION */
-
-.section{
-padding:160px 0;
-opacity:0;
-transform:translateY(60px);
-transition:all 1.2s ease;
-}
-
-.section.visible{
-opacity:1;
-transform:translateY(0);
-}
-
-h2{
-font-family:'Cormorant Garamond', serif;
-font-size:2.6rem;
-color:var(--brown);
-font-weight:500;
-margin-bottom:60px;
-}
-
-/* IMAGE BLOCK */
-
-.project{
-margin-bottom:140px;
-}
-
-.project-image{
-width:100%;
-overflow:hidden;
-}
-
-.project-image img{
-width:100%;
-height:auto;
-display:block;
-transition:transform 2.5s ease;
-}
-
-.project-image:hover img{
-transform:scale(1.04);
-}
-
-.project-caption{
-margin-top:25px;
-font-size:0.95rem;
-color:var(--lightgrey);
-letter-spacing:0.5px;
 }
 
 /* FOOTER */
 
 .footer{
-padding:120px 0;
-border-top:1px solid #f2f2f2;
-font-size:0.9rem;
+padding:80px 0;
+text-align:center;
+font-size:0.85rem;
 color:var(--lightgrey);
+border-top:1px solid #eeeeee;
 }
-
-/* ANIMATIONS */
-
-@keyframes fadeIn{
-to{opacity:1;}
-}
-
-@keyframes slideUp{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* RESPONSIVE */
 
 @media(max-width:768px){
-
 .hero h1{
-font-size:2.8rem;
+font-size:2.5rem;
 }
-
-.section{
-padding:110px 0;
+.nav-links a{
+margin-left:15px;
 }
-
 }
 
 </style>
@@ -182,70 +126,29 @@ padding:110px 0;
 <body>
 
 <nav>
-<div class="container">
-<img src="logo.png" class="logo">
+<div class="nav-inner">
+<div class="brand">
+<img src="logo.png">
+<div class="brand-name">The Samanweeave Project</div>
+</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="works.html">Works</a>
+<a href="connect.html">Connect</a>
+</div>
 </div>
 </nav>
 
-<div class="container hero">
-<div class="hero-content">
-<h1>The SamanWeeave Project</h1>
-<p>A harmonious weave between People, Place, Purpose — and every parameter that shapes a personalised experience.</p>
+<div class="hero">
+<div>
+<h1>People. Place. Purpose.</h1>
+<p>A harmonious weave between every parameter involved in curating a personalised spatial experience.</p>
 </div>
 </div>
 
-<div class="container section">
-<h2>Selected Works</h2>
-
-<div class="project">
-<div class="project-image">
-<img src="project1.jpg" alt="Project 1">
+<div class="footer">
+© 2026 The Samanweeave Project
 </div>
-<div class="project-caption">Residential Interior · Bengaluru</div>
-</div>
-
-<div class="project">
-<div class="project-image">
-<img src="project2.png" alt="Project 2">
-</div>
-<div class="project-caption">Private Villa · Coastal Karnataka</div>
-</div>
-
-<div class="project">
-<div class="project-image">
-<img src="project3.png" alt="Project 3">
-</div>
-<div class="project-caption">Curated Space · Contextual Study</div>
-</div>
-
-</div>
-
-<div class="container section">
-<h2>Philosophy</h2>
-<p>The Samanweeave Project studies and understands every aspect — from client to context — where the project is curated. The studio creates a harmonious process between site, client, and collaborators, materialising dreams with logic, sensitivity, and sense.</p>
-</div>
-
-<div class="container footer">
-<p>thesamanweeaveproject@gmail.com</p>
-<p>© 2026 The Samanweeave Project</p>
-</div>
-
-<script>
-
-/* Scroll Reveal */
-
-const sections = document.querySelectorAll('.section');
-
-window.addEventListener('scroll',()=>{
-sections.forEach(section=>{
-const rect = section.getBoundingClientRect();
-if(rect.top < window.innerHeight - 120){
-section.classList.add('visible');
-}
-});
-});
-
-</script>
 
 </body>
 </html>
