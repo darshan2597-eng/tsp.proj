@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Works | The SamanWeeave Project</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+background:#ffffff;
+font-family:'Inter', sans-serif;
+color:#666666;
+}
+
+:root{
+--brown:#4b2e1f;
+--lightgrey:#9a9a9a;
+}
+
+/* NAV reused */
+
+nav{
+width:100%;
+border-bottom:1px solid #eeeeee;
+background:#ffffff;
+position:fixed;
+top:0;
+}
+
+.nav-inner{
+width:90%;
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.brand img{
+height:38px;
+}
+
+.brand-name{
+font-family:'Cormorant Garamond', serif;
+font-size:1.8rem;
+color:var(--brown);
+}
+
+.nav-links a{
+margin-left:30px;
+text-decoration:none;
+color:#666;
+font-size:0.9rem;
+}
+
+.nav-links a:hover{
+color:var(--brown);
+}
+
+/* WORKS */
+
+.container{
+width:90%;
+max-width:1200px;
+margin:160px auto 100px auto;
+}
+
+.project{
+margin-bottom:120px;
+}
+
+.project-title{
+font-family:'Cormorant Garamond', serif;
+font-size:2rem;
+color:var(--brown);
+margin-bottom:15px;
+}
+
+.project-location{
+font-size:0.9rem;
+color:var(--lightgrey);
+margin-bottom:30px;
+}
+
+.project img{
+width:100%;
+display:block;
+transition:transform 1.5s ease;
+}
+
+.project img:hover{
+transform:scale(1.02);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-inner">
+<div class="brand">
+<img src="logo.png">
+<div class="brand-name">The SamanWeeave Project</div>
+</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="works.html">Works</a>
+<a href="connect.html">Connect</a>
+</div>
+</div>
+</nav>
+
+<div class="container">
+
+<div class="project">
+<div class="project-title">Project Name One</div>
+<div class="project-location">Residential Interior · Bengaluru</div>
+<img src="project1.jpg">
+</div>
+
+<div class="project">
+<div class="project-title">Project Name Two</div>
+<div class="project-location">Private Villa · Coastal Karnataka</div>
+<img src="project2.png">
+</div>
+
+<div class="project">
+<div class="project-title">Project Name Three</div>
+<div class="project-location">Contextual Study · Curated Space</div>
+<img src="project3.png">
+</div>
+
+</div>
+
+</body>
+</html>
