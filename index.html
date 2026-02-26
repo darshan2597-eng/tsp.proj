@@ -24,7 +24,7 @@ overflow-x:hidden;
 --lightgrey:#9a9a9a;
 }
 
-/* INTRO SCREEN */
+/* INTRO */
 
 .intro{
 position:fixed;
@@ -42,24 +42,29 @@ z-index:2000;
 
 .intro-word{
 font-family:'Cormorant Garamond', serif;
-font-size:3.5rem;
+font-size:3.2rem;
 color:var(--brown);
 opacity:0;
-position:absolute;
-transition:opacity 1.2s ease;
+transition:opacity 0.6s ease;
 }
 
 .intro-logo{
-height:60px;
+height:120px; /* Bigger logo */
 opacity:0;
-transition:opacity 1.5s ease;
+transition:opacity 0.8s ease, transform 2s ease;
+animation:pulse 2s infinite ease-in-out;
 }
 
-/* MAIN SITE (hidden initially) */
+/* subtle loading pulse */
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.03);}
+100%{transform:scale(1);}
+}
 
 .site{
 opacity:0;
-transition:opacity 1.5s ease;
+transition:opacity 1s ease;
 }
 
 /* NAV */
@@ -97,7 +102,6 @@ height:38px;
 font-family:'Cormorant Garamond', serif;
 font-size:1.8rem;
 color:var(--brown);
-font-weight:500;
 }
 
 .nav-links a{
@@ -136,8 +140,6 @@ line-height:1.8;
 color:var(--grey);
 }
 
-/* FOOTER */
-
 .footer{
 padding:80px 0;
 text-align:center;
@@ -147,12 +149,8 @@ border-top:1px solid #eeeeee;
 }
 
 @media(max-width:768px){
-.intro-word{
-font-size:2.2rem;
-}
-.hero h1{
-font-size:2.5rem;
-}
+.intro-word{font-size:2.2rem;}
+.hero h1{font-size:2.5rem;}
 }
 
 </style>
@@ -160,14 +158,10 @@ font-size:2.5rem;
 
 <body>
 
-<!-- INTRO -->
-
 <div class="intro">
-<div id="word" class="intro-word"></div>
+<div id="introText" class="intro-word"></div>
 <img src="logo.png" id="introLogo" class="intro-logo">
 </div>
-
-<!-- MAIN SITE -->
 
 <div class="site" id="mainSite">
 
@@ -201,47 +195,52 @@ font-size:2.5rem;
 <script>
 
 const words = ["People", "Place", "Purpose"];
-const wordElement = document.getElementById("word");
-const introLogo = document.getElementById("introLogo");
-const introScreen = document.querySelector(".intro");
-const mainSite = document.getElementById("mainSite");
+const text = document.getElementById("introText");
+const logo = document.getElementById("introLogo");
+const intro = document.querySelector(".intro");
+const site = document.getElementById("mainSite");
 
-let index = 0;
+let i = 0;
 
-function showWord(){
-if(index < words.length){
-wordElement.textContent = words[index];
-wordElement.style.opacity = 1;
+function showWords(){
+if(i < words.length){
+text.textContent = words[i];
+text.style.opacity = 1;
 
 setTimeout(()=>{
-wordElement.style.opacity = 0;
-index++;
-setTimeout(showWord, 800);
-},1500);
+text.style.opacity = 0;
+i++;
+setTimeout(showWords,300);
+},900);
 
 }else{
-
-// After last word
-setTimeout(()=>{
-introLogo.style.opacity = 1;
-
-setTimeout(()=>{
-introLogo.style.opacity = 0;
-introScreen.style.opacity = 0;
+// show all words together quickly
+text.textContent = "People · Place · Purpose";
+text.style.opacity = 1;
 
 setTimeout(()=>{
-introScreen.style.display = "none";
-mainSite.style.opacity = 1;
-},1000);
+text.style.opacity = 0;
+setTimeout(()=>{
+logo.style.opacity = 1;
 
-},1500);
+setTimeout(()=>{
+logo.style.opacity = 0;
+intro.style.opacity = 0;
 
+setTimeout(()=>{
+intro.style.display="none";
+site.style.opacity=1;
 },800);
 
+},1200);
+
+},400);
+
+},1200);
 }
 }
 
-showWord();
+showWords();
 
 </script>
 
