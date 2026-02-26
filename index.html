@@ -3,157 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>The SamanWeeave Project</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-body {
-font-family: 'Inter', sans-serif;
-background: #0f0f10;
-color: #f5f5f5;
-overflow-x: hidden;
+body{
+background:#f4f1ec;
+color:#1a1a1a;
+font-family:'Inter', sans-serif;
+overflow-x:hidden;
 }
 
-.container {
-width: 88%;
-max-width: 1200px;
-margin: auto;
+.container{
+width:88%;
+max-width:1200px;
+margin:auto;
 }
 
 /* NAV */
 
-nav {
-position: fixed;
-top: 0;
-width: 100%;
-padding: 20px 0;
-background: rgba(15,15,16,0.6);
-backdrop-filter: blur(8px);
-z-index: 1000;
+nav{
+position:fixed;
+top:0;
+width:100%;
+padding:25px 0;
+background:rgba(244,241,236,0.85);
+backdrop-filter:blur(10px);
+z-index:1000;
 }
 
-.nav-inner {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
-
-.logo {
-height: 40px;
-opacity: 0;
-animation: fadeIn 1.5s ease forwards;
+.logo{
+height:45px;
+animation:fadeIn 2s ease forwards;
+opacity:0;
 }
 
 /* HERO */
 
-.hero {
-height: 100vh;
-display: flex;
-align-items: center;
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
 }
 
-.hero-text {
-max-width: 700px;
-opacity: 0;
-transform: translateY(30px);
-animation: slideUp 1.5s ease forwards;
-animation-delay: 0.5s;
+.hero-content{
+max-width:800px;
+animation:slideUp 1.8s ease forwards;
+opacity:0;
+transform:translateY(40px);
 }
 
-.hero h1 {
-font-family: 'Playfair Display', serif;
-font-size: 3.5rem;
-font-weight: 400;
-margin-bottom: 20px;
+.hero h1{
+font-family:'Cormorant Garamond', serif;
+font-size:4rem;
+font-weight:400;
+letter-spacing:1px;
+margin-bottom:20px;
 }
 
-.hero p {
-font-weight: 300;
-line-height: 1.8;
-opacity: 0.8;
+.hero p{
+font-size:1.1rem;
+font-weight:300;
+max-width:600px;
+line-height:1.8;
+opacity:0.8;
 }
 
 /* SECTIONS */
 
-.section {
-padding: 120px 0;
-opacity: 0;
-transform: translateY(40px);
-transition: all 1s ease;
+.section{
+padding:140px 0;
+opacity:0;
+transform:translateY(60px);
+transition:all 1.2s ease;
 }
 
-.section.visible {
-opacity: 1;
-transform: translateY(0);
+.section.visible{
+opacity:1;
+transform:translateY(0);
 }
 
-h2 {
-font-family: 'Playfair Display', serif;
-font-weight: 400;
-margin-bottom: 40px;
-font-size: 2.2rem;
+h2{
+font-family:'Cormorant Garamond', serif;
+font-size:2.4rem;
+font-weight:400;
+margin-bottom:50px;
 }
 
-.works {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 40px;
+/* IMAGES */
+
+.image-block{
+margin-bottom:80px;
+overflow:hidden;
 }
 
-.work-item {
-background: #1c1c1f;
-padding: 50px;
-transition: all 0.4s ease;
+.image-block img{
+width:100%;
+height:auto;
+display:block;
+transition:transform 1.5s ease;
 }
 
-.work-item:hover {
-transform: translateY(-10px);
-background: #262629;
+.image-block:hover img{
+transform:scale(1.05);
 }
 
 /* FOOTER */
 
-.footer {
-padding: 80px 0;
-font-size: 0.9rem;
-opacity: 0.7;
+.footer{
+padding:100px 0;
+font-size:0.9rem;
+opacity:0.7;
 }
 
 /* ANIMATIONS */
 
-@keyframes fadeIn {
-to { opacity: 1; }
+@keyframes fadeIn{
+to{opacity:1;}
 }
 
-@keyframes slideUp {
-to {
-opacity: 1;
-transform: translateY(0);
+@keyframes slideUp{
+to{
+opacity:1;
+transform:translateY(0);
 }
 }
 
-/* MOBILE OPTIMISATION */
+/* RESPONSIVE */
 
-@media(max-width: 768px) {
+@media(max-width:768px){
 
-.hero h1 {
-font-size: 2.2rem;
+.hero h1{
+font-size:2.6rem;
 }
 
-.section {
-padding: 80px 0;
-}
-
-nav {
-padding: 15px 0;
+.section{
+padding:100px 0;
 }
 
 }
@@ -164,40 +158,39 @@ padding: 15px 0;
 <body>
 
 <nav>
-<div class="container nav-inner">
+<div class="container">
 <img src="logo.png" class="logo">
 </div>
 </nav>
 
 <div class="container hero">
-<div class="hero-text">
+<div class="hero-content">
 <h1>The SamanWeeave Project</h1>
 <p>A harmonious weave between People, Place, Purpose — and every parameter that shapes a personalised experience.</p>
 </div>
 </div>
 
 <div class="container section">
-<h2>Philosophy</h2>
-<p>The studio studies context before form, listens before drawing, and aligns intention before execution. Every project emerges from a calibrated dialogue between site, client, collaborators, and craft.</p>
-</div>
-
-<div class="container section">
 <h2>Selected Works</h2>
-<div class="works">
-<div class="work-item">
-<h3>Residential Interior</h3>
-<p>Bengaluru</p>
+
+<div class="image-block">
+<img src="project1.jpg" alt="Project 1">
 </div>
-<div class="work-item">
-<h3>Private Villa</h3>
-<p>Coastal Karnataka</p>
+
+<div class="image-block">
+<img src="project2.jpg" alt="Project 2">
 </div>
+
+<div class="image-block">
+<img src="project3.jpg" alt="Project 3">
 </div>
+
 </div>
 
 <div class="container section">
-<h2>Process</h2>
-<p>Observation. Interpretation. Materialisation. Each phase is treated as a disciplined yet poetic progression.</p>
+<h2>Philosophy</h2>
+<p>The Samanweeave Project studies and understands every aspect — from client to context — where the project is curated. 
+The goal is to create a harmonious process between site, client, and collaborators, materialising dreams with logic, sensitivity, and sense.</p>
 </div>
 
 <div class="container section footer">
@@ -207,14 +200,12 @@ padding: 15px 0;
 
 <script>
 
-/* Scroll Reveal */
-
 const sections = document.querySelectorAll('.section');
 
-window.addEventListener('scroll', () => {
-sections.forEach(section => {
+window.addEventListener('scroll',()=>{
+sections.forEach(section=>{
 const rect = section.getBoundingClientRect();
-if(rect.top < window.innerHeight - 100){
+if(rect.top < window.innerHeight - 120){
 section.classList.add('visible');
 }
 });
